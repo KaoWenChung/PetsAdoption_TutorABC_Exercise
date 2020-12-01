@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class MainViewController: UIViewController {
 
@@ -15,6 +16,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        getJSON()
         let pad = PetsAdoption.x(20)
         let insets = UIEdgeInsets(top: pad * 1.5, left: pad, bottom: pad, right: pad)
         let layout = PetsCollectionViewLayout(lineSpacing: PetsAdoption.x(8), columnSpacing: PetsAdoption.x(4), sectionInsets: insets)
@@ -28,6 +30,55 @@ class MainViewController: UIViewController {
 
         
         view.addSubview(collectionView)
+    }
+
+    func getJSON() {
+        let url = "https://quality.data.gov.tw/dq_download_json.php?nid=85903&md5_url=c37f10282e2229a6459d7d85e601c38e"
+        let manager = AFHTTPSessionManager()
+        manager.get(
+            url,
+            parameters: nil,
+            headers: nil,
+            progress: nil,
+            success: { (_, jsonData) in
+                let petArray = NSArray.yy_modelArray(with: Pet.self, json: jsonData) as! [Pet]
+//                print("jsonData", jsonData)
+                print("petArray", petArray)
+                Pet.saveCityModel(petArray: petArray)
+                sleep(2)
+                print("wowowow", Pet.getCityModelFromDie())
+//                print("wow2", jsonData)
+
+                 if let dic = jsonData as? [String: Any], let matches = dic["matches"] as? [[String: Any]] {
+                      print(matches)
+                 }
+                 DispatchQueue.main.async {
+                    print("Wow")
+                 }
+            },
+            failure: {
+                (_, error) in
+                 print("Error: " + error.localizedDescription)
+            })
+//        manager.get(
+//            url,
+//            parameters: nil,
+//            success:
+//            {
+//                (operation, responseObject) in
+//
+//                 if let dic = responseObject as? [String: Any], let matches = dic["matches"] as? [[String: Any]] {
+//                      print(matches)
+//                 }
+//                 DispatchQueue.main.async {
+//                     self.tollBothPlazaTableView.reloadData()
+//                 }
+//            },
+//            failure:
+//            {
+//                (operation, error) in
+//                 print("Error: " + error.localizedDescription)
+//        })
     }
 }
 

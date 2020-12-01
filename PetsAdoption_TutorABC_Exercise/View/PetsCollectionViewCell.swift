@@ -23,10 +23,10 @@ class PetsCollectionViewCell: UICollectionViewCell {
             layer.borderColor = PetsAdoption.Color.mainBlue.cgColor
             layer.borderWidth = 1
         }
-        petSex.text = petData?.sex
-        petAge.text = petData?.age
-        petImage = UIImageView()
-        petAddress.text = petData?.address
+//        petSex.text = petData?.sex
+//        petAge.text = petData?.age
+//        petImage = UIImageView()
+//        petAddress.text = petData?.address
     }
 
     private static func getLabel(_ text: String?) -> UILabel {
