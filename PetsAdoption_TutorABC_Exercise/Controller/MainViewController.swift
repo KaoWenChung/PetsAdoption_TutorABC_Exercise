@@ -11,7 +11,7 @@ import AFNetworking
 class MainViewController: UIViewController {
 
     private var collectionView: UICollectionView!
-    private(set) var petsData = [Pet]()
+    private var pets = [Pet]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,44 +41,18 @@ class MainViewController: UIViewController {
             headers: nil,
             progress: nil,
             success: { (_, jsonData) in
-                let petArray = NSArray.yy_modelArray(with: Pet.self, json: jsonData) as! [Pet]
-//                print("jsonData", jsonData)
-                print("petArray", petArray)
-                Pet.saveCityModel(petArray: petArray)
-                sleep(2)
-                print("wowowow", Pet.getCityModelFromDie())
-//                print("wow2", jsonData)
+                let petArray = NSArray.yy_modelArray(with: Pet.self, json: jsonData ?? []) as! [Pet]
+                Pet.savePetsModel(petArray: petArray)
+                self.pets = Pet.getPetsModelFromDie()
+//                print("🐶🐱", self.pets)
 
-                 if let dic = jsonData as? [String: Any], let matches = dic["matches"] as? [[String: Any]] {
-                      print(matches)
-                 }
-                 DispatchQueue.main.async {
-                    print("Wow")
-                 }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             },
-            failure: {
-                (_, error) in
+            failure: { (_, error) in
                  print("Error: " + error.localizedDescription)
             })
-//        manager.get(
-//            url,
-//            parameters: nil,
-//            success:
-//            {
-//                (operation, responseObject) in
-//
-//                 if let dic = responseObject as? [String: Any], let matches = dic["matches"] as? [[String: Any]] {
-//                      print(matches)
-//                 }
-//                 DispatchQueue.main.async {
-//                     self.tollBothPlazaTableView.reloadData()
-//                 }
-//            },
-//            failure:
-//            {
-//                (operation, error) in
-//                 print("Error: " + error.localizedDescription)
-//        })
     }
 }
 
@@ -90,7 +64,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return pets.count
     }
 }
 

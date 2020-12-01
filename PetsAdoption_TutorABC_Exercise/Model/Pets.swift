@@ -32,29 +32,24 @@ class Pet: NSObject, NSCoding, YYModel {
         self.yy_modelEncode(with: aCoder)
     }
 
-    static func modelCustomPropertyMapper() -> [String: Any]? {
-        return ["ids": "id"]
-    }
-
     override var description: String {
-            return yy_modelDescription()
-        }
-        
-        class func getSavePath() -> String{
-            let docPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-            let path = (docPath as String) + "/cityList.plist"
-            print(path)
-            return path
-        }
-        
-        class func saveCityModel(petArray:[Pet]) {
-            let path = getSavePath()
-            NSKeyedArchiver.archiveRootObject(petArray, toFile: path)
-        }
-        
-        class func getCityModelFromDie() -> [Pet] {
-            let cityModel = NSKeyedUnarchiver.unarchiveObject(withFile: getSavePath()) as! [Pet]
-            return cityModel
-        }
-
+        return yy_modelDescription()
+    }
+    
+    class func getSavePath() -> String{
+        let docPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let path = (docPath as String) + "/patList.plist"
+        print(path)
+        return path
+    }
+    
+    class func savePetsModel(petArray: [Pet]) {
+        let path = getSavePath()
+        NSKeyedArchiver.archiveRootObject(petArray, toFile: path)
+    }
+    
+    class func getPetsModelFromDie() -> [Pet] {
+        let petModel = NSKeyedUnarchiver.unarchiveObject(withFile: getSavePath()) as! [Pet]
+        return petModel
+    }
 }
