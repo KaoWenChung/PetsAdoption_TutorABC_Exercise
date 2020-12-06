@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,11 @@
 		212F86F225748EA50034EF94 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F86F125748EA50034EF94 /* Pets.swift */; };
 		212F86F5257494B00034EF94 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F86F4257494B00034EF94 /* UIColor+Ext.swift */; };
 		212F86F82574C4880034EF94 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F86F72574C4880034EF94 /* UILabel+Ext.swift */; };
+		212F870C257678610034EF94 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F870B257678610034EF94 /* UIView+Ext.swift */; };
+		212F87152579EA510034EF94 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F87142579EA500034EF94 /* UIImage+Ext.swift */; };
+		212F8719257A3A0F0034EF94 /* GenderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F8718257A3A0F0034EF94 /* GenderImage.swift */; };
+		212F871D257B92680034EF94 /* AgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F871C257B92680034EF94 /* AgeLabel.swift */; };
+		21387C59257D0FD1009E9EBC /* PetToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C58257D0FD1009E9EBC /* PetToggleButton.swift */; };
 		A133D4167504823053122485 /* Pods_PetsAdoption_TutorABC_Exercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,11 @@
 		212F86F125748EA50034EF94 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 		212F86F4257494B00034EF94 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		212F86F72574C4880034EF94 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		212F870B257678610034EF94 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		212F87142579EA500034EF94 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		212F8718257A3A0F0034EF94 /* GenderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImage.swift; sourceTree = "<group>"; };
+		212F871C257B92680034EF94 /* AgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeLabel.swift; sourceTree = "<group>"; };
+		21387C58257D0FD1009E9EBC /* PetToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetToggleButton.swift; sourceTree = "<group>"; };
 		7A29AF14EB2FBC42D8CC2098 /* Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; sourceTree = "<group>"; };
 		A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetsAdoption_TutorABC_Exercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDFB914ADA85C4CB15820C21 /* Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +101,9 @@
 				212F86EB2573B5AA0034EF94 /* PetsAdoption.swift */,
 				212F86EE2573C11E0034EF94 /* PetsCollectionViewLayout.swift */,
 				212F86F125748EA50034EF94 /* Pets.swift */,
+				212F8718257A3A0F0034EF94 /* GenderImage.swift */,
+				212F871C257B92680034EF94 /* AgeLabel.swift */,
+				21387C58257D0FD1009E9EBC /* PetToggleButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +130,8 @@
 				212F86E22573AF490034EF94 /* UICollectionViewCell+Ext.swift */,
 				212F86F4257494B00034EF94 /* UIColor+Ext.swift */,
 				212F86F72574C4880034EF94 /* UILabel+Ext.swift */,
+				212F870B257678610034EF94 /* UIView+Ext.swift */,
+				212F87142579EA500034EF94 /* UIImage+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -127,7 +142,6 @@
 				7A29AF14EB2FBC42D8CC2098 /* Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig */,
 				FDFB914ADA85C4CB15820C21 /* Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -252,14 +266,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212F87152579EA510034EF94 /* UIImage+Ext.swift in Sources */,
 				212F86F225748EA50034EF94 /* Pets.swift in Sources */,
 				212F86F82574C4880034EF94 /* UILabel+Ext.swift in Sources */,
+				212F870C257678610034EF94 /* UIView+Ext.swift in Sources */,
 				212F86BD2570F2A40034EF94 /* AppDelegate.swift in Sources */,
+				21387C59257D0FD1009E9EBC /* PetToggleButton.swift in Sources */,
 				212F86EC2573B5AA0034EF94 /* PetsAdoption.swift in Sources */,
 				212F86EF2573C11E0034EF94 /* PetsCollectionViewLayout.swift in Sources */,
 				212F86D32570FAD70034EF94 /* MainViewController.swift in Sources */,
 				212F86F5257494B00034EF94 /* UIColor+Ext.swift in Sources */,
+				212F8719257A3A0F0034EF94 /* GenderImage.swift in Sources */,
 				212F86E72573AFD00034EF94 /* PetsCollectionViewCell.swift in Sources */,
+				212F871D257B92680034EF94 /* AgeLabel.swift in Sources */,
 				212F86E32573AF490034EF94 /* UICollectionViewCell+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PetsCollectionViewDelegate: AnyObject {
-    func widthForItems (_ layout: PetsCollectionViewLayout, at indexPath: IndexPath) -> CGFloat
+    func widthForItems (_ layout: PetsCollectionViewLayout) -> CGFloat
     func heightForRows(_ layout: PetsCollectionViewLayout) -> CGFloat
 }
 
@@ -63,7 +63,7 @@ class PetsCollectionViewLayout: UICollectionViewLayout {
 
         let attribute = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let width = collectionView.frame.width
-        let itemWidth = delegate?.widthForItems(self, at: indexPath) ?? 0
+        let itemWidth = delegate?.widthForItems(self) ?? 0
         var itemX = rowItemsMaxX[currentRow] ?? sectionInsets.left
 
         if (itemX + columnSpacing + itemWidth) > width {

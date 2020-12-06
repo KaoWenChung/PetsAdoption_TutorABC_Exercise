@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import SDWebImage
 import AFNetworking
 
 class MainViewController: UIViewController {
 
     private var collectionView: UICollectionView!
     private var pets = [Pet]()
+    private let dogToggleButton = PetToggleButton()
+    private let catToggleButton = PetToggleButton(title: "CAT", color: .yellow, font: PetsAdoption.Font.h3.regular)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Pets Adoption"
 
         getJSON()
         let pad = PetsAdoption.x(20)
@@ -26,10 +30,47 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PetsCollectionViewCell.self, forCellWithReuseIdentifier: PetsCollectionViewCell.reuseId)
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .lightGray
 
         
-        view.addSubview(collectionView)
+//        view.addSubview(collectionView)
+        setUpToggleButton()
+    }
+
+    private func setUpToggleButton() {
+        dogToggleButton.titleLabel?.text = "Dog"
+        catToggleButton.titleLabel?.text = "Cat"
+        
+        let petToggleButtons = UIStackView(arrangedSubviews: [dogToggleButton, catToggleButton])
+        let petToggleButtonsWidth = dogToggleButton.bounds.width + catToggleButton.bounds.width
+        petToggleButtons.frame.size = CGSize(width: petToggleButtonsWidth, height: dogToggleButton.bounds.height)
+        petToggleButtons.setOrigin(x: 0, midX: 0, y: 0, midY: 0)
+        petToggleButtons.axis = .horizontal
+        petToggleButtons.distribution = .fillEqually
+        petToggleButtons.alignment = .fill
+        petToggleButtons.spacing = 0
+
+        dogToggleButton.mas_makeConstraints { (make) in
+            make?.height.equalTo()(20)
+            make?.width.equalTo()(PetsAdoption.x(100))
+        }
+
+        catToggleButton.mas_makeConstraints { (make) in
+            make?.top.equalTo()(0)
+            make?.left.equalTo()(0)
+            make?.height.equalTo()(20)
+            make?.width.equalTo()(PetsAdoption.x(100))
+        }
+
+//        petToggleButtons.mas_makeConstraints { (make) in
+//            make?.top.equalTo()(0)
+//            make?.left.equalTo()(0)
+//            make?.right.equalTo()(0)
+//            make?.bottom.equalTo()(PetsAdoption.x(-65))
+//        }
+
+
+        view.addSubview(catToggleButton)
     }
 
     func getJSON() {
@@ -58,9 +99,10 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.reuseId, for: indexPath)
-                cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.orange : UIColor.brown
-                return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.reuseId, for: indexPath) as! PetsCollectionViewCell
+//        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.orange : UIColor.brown
+        cell.initCell(by: pets[indexPath.row])
+        return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -70,10 +112,10 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: PetsCollectionViewDelegate {
     func heightForRows(_ layout: PetsCollectionViewLayout) -> CGFloat {
-        return 100
+        return PetsCollectionViewCell.getHeight()
     }
     
-    func widthForItems(_ layout: PetsCollectionViewLayout, at indexPath: IndexPath) -> CGFloat {
+    func widthForItems(_ layout: PetsCollectionViewLayout) -> CGFloat {
         return PetsCollectionViewCell.getWidth()
     }
 }
@@ -81,7 +123,6 @@ extension MainViewController: PetsCollectionViewDelegate {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-//        let text =
-        print("Tap :", indexPath.row)
+        print("Tap :", indexPath.row, pets[indexPath.row])
     }
 }

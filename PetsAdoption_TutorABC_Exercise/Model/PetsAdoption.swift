@@ -42,14 +42,18 @@ class PetsAdoption {
 
     // UIColor
     enum Color {
-        static let mainBlue = UIColor(rgb: 0x12b3d9)
+        static let mainBlue = UIColor(rgb: 0xbae0ff)
+        static let red = UIColor(rgb: 0xffbfba)
         static let mainDark = UIColor(rgb: 0x373E52)
+        static let mainYellow = UIColor(rgb: 0xffff96)
+        static let mainWhite = UIColor(rgb: 0xfffefa)
     }
 
     // UIFont
     enum Font: CGFloat {
         case h1 = 28
         case h2 = 16
+        case h3 = 12
 
         var regular: UIFont {
             return UIFont(name: "PingFangTC-Regular", size: rawValue)!

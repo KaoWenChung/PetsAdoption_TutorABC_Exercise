@@ -39,7 +39,6 @@ class Pet: NSObject, NSCoding, YYModel {
     class func getSavePath() -> String{
         let docPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
         let path = (docPath as String) + "/patList.plist"
-        print(path)
         return path
     }
     

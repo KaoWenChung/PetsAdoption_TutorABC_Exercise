@@ -6,38 +6,101 @@
 //
 
 import UIKit
+import Masonry
+import SDWebImage
 
 class PetsCollectionViewCell: UICollectionViewCell {
     private static let pad = PetsAdoption.x(20)
 
-    private var petSex: UILabel!
-    private var petAge: UILabel!
-    private var petImage: UIImageView!
-    private var petAddress: UILabel!
+    private var petSex = GenderImage()
+    private var petAge = AgeLabel()
+    private var petImage = UIImageView()
+    private var petAddress = UILabel()
+    private var underLine = UIView()
 
     func initCell(by petData: Pet?) {
-        // petSex???
-        if petSex == nil {
-            backgroundColor = .clear
-            layer.cornerRadius = bounds.height / 2
-            layer.borderColor = PetsAdoption.Color.mainBlue.cgColor
-            layer.borderWidth = 1
-        }
-//        petSex.text = petData?.sex
-//        petAge.text = petData?.age
-//        petImage = UIImageView()
-//        petAddress.text = petData?.address
+        guard let petData = petData else { return }
+        let picPath = petData.album_file!
+        let picURL = URL(string: picPath)
+
+        let transformer = SDImageResizingTransformer(size: CGSize(width: 300, height: 300), scaleMode: .aspectFill)
+        
+        petImage.sd_setImage(with: picURL, placeholderImage: UIImage(named: "LoadingImage"), options: [], context: [.imageTransformer: transformer])
+        contentView.addSubview(petImage)
+        
+        petSex.initLabel(by: petData.animal_sex ?? "")
+        contentView.addSubview(petSex)
+
+        petAge.initLabel(by: petData.animal_age ?? "")
+        contentView.addSubview(petAge)
+        contentView.addSubview(underLine)
+
+        petAddress.text = petData.shelter_address
+        petAddress.font = PetsAdoption.Font.h3.regular
+        petAddress.numberOfLines = 2
+        contentView.addSubview(petAddress)
+
+        setupUI()
     }
 
-    private static func getLabel(_ text: String?) -> UILabel {
-        return UILabel(text: text, color: PetsAdoption.Color.mainBlue, font: PetsAdoption.Font.h1.regular)
+    override func prepareForReuse() {
+        petImage.sd_cancelCurrentImageLoad()
+        petImage.image = nil
+    }
+
+    private func setupUI() {
+        underLine.backgroundColor = PetsAdoption.Color.mainDark
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 25.0
+        contentView.layer.backgroundColor = PetsAdoption.Color.mainWhite.cgColor
+        
+        layer.shadowRadius = PetsAdoption.x(10)
+        layer.shadowColor = PetsAdoption.Color.mainDark.cgColor
+        layer.shadowOpacity = 0.5
+        
+        contentView.layer.borderWidth = PetsAdoption.x(2)
+        contentView.layer.borderColor = PetsAdoption.Color.mainWhite.cgColor
+
+        petSex.mas_makeConstraints { (make) in
+            make?.left.equalTo()(PetsAdoption.x(15))
+            make?.bottom.equalTo()(PetsAdoption.x(-45))
+        }
+
+        petImage.mas_makeConstraints { (make) in
+            make?.top.equalTo()(0)
+            make?.left.equalTo()(0)
+            make?.right.equalTo()(0)
+            make?.bottom.equalTo()(PetsAdoption.x(-65))
+        }
+
+        petAge.mas_makeConstraints { (make) in
+            make?.left.equalTo()(PetsAdoption.x(75))
+            make?.bottom.equalTo()(PetsAdoption.x(-45))
+        }
+
+        underLine.mas_makeConstraints { (make) in
+            make?.left.equalTo()(PetsAdoption.x(75))
+            make?.height.equalTo()(1)
+            make?.width.equalTo()(PetsAdoption.x(100))
+            make?.bottom.equalTo()(PetsAdoption.x(-48))
+        }
+
+        petAddress.mas_makeConstraints { (make) in
+            make?.left.equalTo()(PetsAdoption.x(15))
+            make?.right.equalTo()(PetsAdoption.x(-15))
+            make?.top.equalTo()(PetsAdoption.x(185))
+        }
+    }
+
+    private static func handleImage(_ url: String?) -> UILabel {
+        return UILabel(text: url, color: PetsAdoption.Color.mainBlue, font: PetsAdoption.Font.h1.regular)
     }
 
     static func getWidth() -> CGFloat {
-        return PetsAdoption.x(107)
+        return PetsAdoption.x(165)
     }
 
-    static func getHeight(_ text: String?) -> CGFloat {
-        return min(max(pad + getLabel(text).bounds.width, getWidth()), PetsAdoption.w - PetsAdoption.x(40))
+    static func getHeight() -> CGFloat {
+        return PetsAdoption.x(230)
     }
 }
