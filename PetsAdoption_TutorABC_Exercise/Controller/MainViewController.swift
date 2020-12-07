@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.distribution = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing = 16.0
+        stackView.spacing = 40.0
 
         stackView.addArrangedSubview(dogToggleButton)
         stackView.addArrangedSubview(catToggleButton)
@@ -70,8 +70,8 @@ class MainViewController: UIViewController {
 
             make?.top.equalTo()(PetsAdoption.x(50))
             make?.centerX.equalTo()
-            make?.height.equalTo()(20)
-            make?.width.equalTo()(PetsAdoption.x(100))
+//            make?.height.equalTo()(PetsAdoption.x(20))
+//            make?.width.equalTo()(PetsAdoption.x(100))
         }
     }
     // 與tapCatButton待整合

@@ -15,6 +15,14 @@ class PetToggleButton: UIButton {
         isExclusiveTouch = true
         backgroundColor = .brown
         translatesAutoresizingMaskIntoConstraints = false
+        mas_makeConstraints { (make) in
+            make?.height.equalTo()(PetsAdoption.x(40))
+            make?.width.equalTo()(PetsAdoption.x(40))
+        }
+        layer.cornerRadius = PetsAdoption.x(20)
+
+        layer.borderWidth = PetsAdoption.x(2)
+        layer.borderColor = PetsAdoption.Color.mainWhite.cgColor
     }
 
     func toggle(){
