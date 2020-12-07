@@ -9,6 +9,7 @@ import UIKit
 import YYModel
 
 class Pet: NSObject, NSCoding, YYModel {
+    @objc var animal_kind: String?
     @objc var animal_sex: String?
     @objc var animal_age: String?
     @objc var album_file: String?

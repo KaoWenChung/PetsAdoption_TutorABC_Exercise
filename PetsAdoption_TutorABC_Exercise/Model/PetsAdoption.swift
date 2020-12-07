@@ -40,6 +40,11 @@ class PetsAdoption {
         return w * len / baseW
     }
 
+    enum PetType: String{
+        case cat = "貓"
+        case dog = "狗"
+    }
+
     // UIColor
     enum Color {
         static let mainBlue = UIColor(rgb: 0xbae0ff)

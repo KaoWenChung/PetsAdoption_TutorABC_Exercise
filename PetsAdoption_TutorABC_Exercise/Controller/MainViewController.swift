@@ -10,11 +10,11 @@ import SDWebImage
 import AFNetworking
 
 class MainViewController: UIViewController {
-
     private var collectionView: UICollectionView!
     private var pets = [Pet]()
-    private let dogToggleButton = PetToggleButton()
-    private let catToggleButton = PetToggleButton(title: "CAT", color: .yellow, font: PetsAdoption.Font.h3.regular)
+    private var displayPets = [Pet]()
+    private let dogToggleButton = PetToggleButton(title: .dog, color: .white, font: PetsAdoption.Font.h2.regular)
+    private let catToggleButton = PetToggleButton(title: .cat, color: .white, font: PetsAdoption.Font.h2.regular)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,46 +31,67 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.register(PetsCollectionViewCell.self, forCellWithReuseIdentifier: PetsCollectionViewCell.reuseId)
         collectionView.backgroundColor = .lightGray
-
+        view.backgroundColor = .lightGray
         
-//        view.addSubview(collectionView)
+        view.addSubview(collectionView)
         setUpToggleButton()
     }
 
     private func setUpToggleButton() {
-        dogToggleButton.titleLabel?.text = "Dog"
-        catToggleButton.titleLabel?.text = "Cat"
-        
-        let petToggleButtons = UIStackView(arrangedSubviews: [dogToggleButton, catToggleButton])
-        let petToggleButtonsWidth = dogToggleButton.bounds.width + catToggleButton.bounds.width
-        petToggleButtons.frame.size = CGSize(width: petToggleButtonsWidth, height: dogToggleButton.bounds.height)
-        petToggleButtons.setOrigin(x: 0, midX: 0, y: 0, midY: 0)
-        petToggleButtons.axis = .horizontal
-        petToggleButtons.distribution = .fillEqually
-        petToggleButtons.alignment = .fill
-        petToggleButtons.spacing = 0
+        dogToggleButton.addTarget(self, action: #selector(tapDogButton), for: .touchUpInside)
+        catToggleButton.addTarget(self, action: #selector(tapCatButton), for: .touchUpInside)
 
-        dogToggleButton.mas_makeConstraints { (make) in
+        //Stack View
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution = UIStackView.Distribution.equalSpacing
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing = 16.0
+
+        stackView.addArrangedSubview(dogToggleButton)
+        stackView.addArrangedSubview(catToggleButton)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        self.view.addSubview(stackView)
+
+        stackView.mas_makeConstraints { (make) in
+            make?.top.equalTo()(PetsAdoption.x(80))
+            make?.centerX.equalTo()
             make?.height.equalTo()(20)
             make?.width.equalTo()(PetsAdoption.x(100))
         }
-
-        catToggleButton.mas_makeConstraints { (make) in
-            make?.top.equalTo()(0)
-            make?.left.equalTo()(0)
-            make?.height.equalTo()(20)
-            make?.width.equalTo()(PetsAdoption.x(100))
+    }
+    // 與tapCatButton待整合
+    @objc func tapDogButton() {
+        guard catToggleButton.getDisplayStatus() else { return }
+        dogToggleButton.toggle()
+        guard dogToggleButton.getDisplayStatus() else {
+            displayPets = pets.filter{ ($0.animal_kind?.contains("貓"))! }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            return
         }
+        displayPets = pets
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
 
-//        petToggleButtons.mas_makeConstraints { (make) in
-//            make?.top.equalTo()(0)
-//            make?.left.equalTo()(0)
-//            make?.right.equalTo()(0)
-//            make?.bottom.equalTo()(PetsAdoption.x(-65))
-//        }
-
-
-        view.addSubview(catToggleButton)
+    @objc func tapCatButton() {
+        guard dogToggleButton.getDisplayStatus() else { return }
+        catToggleButton.toggle()
+        guard catToggleButton.getDisplayStatus() else {
+            displayPets = pets.filter{ ($0.animal_kind?.contains("狗"))! }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            return
+        }
+        displayPets = pets
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
 
     func getJSON() {
@@ -85,6 +106,7 @@ class MainViewController: UIViewController {
                 let petArray = NSArray.yy_modelArray(with: Pet.self, json: jsonData ?? []) as! [Pet]
                 Pet.savePetsModel(petArray: petArray)
                 self.pets = Pet.getPetsModelFromDie()
+                self.displayPets = self.pets
 //                print("🐶🐱", self.pets)
 
                 DispatchQueue.main.async {
@@ -100,13 +122,12 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PetsCollectionViewCell.reuseId, for: indexPath) as! PetsCollectionViewCell
-//        cell.backgroundColor = indexPath.row % 2 == 0 ? UIColor.orange : UIColor.brown
-        cell.initCell(by: pets[indexPath.row])
+        cell.initCell(by: displayPets[indexPath.row])
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pets.count
+        return displayPets.count
     }
 }
 
@@ -123,6 +144,8 @@ extension MainViewController: PetsCollectionViewDelegate {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("Tap :", indexPath.row, pets[indexPath.row])
+        print("Tap :", indexPath.row, displayPets[indexPath.row])
+        let viewcontroller = PetsDetailViewController()
+        navigationController?.pushViewController(viewcontroller, animated: true)
     }
 }

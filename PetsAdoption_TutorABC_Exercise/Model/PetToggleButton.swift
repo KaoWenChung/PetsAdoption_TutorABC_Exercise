@@ -8,16 +8,22 @@
 import UIKit
 
 class PetToggleButton: UIButton {
-    private var isDisplay: Bool = false
+    private var isDisplay: Bool = true
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         isExclusiveTouch = true
+        backgroundColor = .brown
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
     func toggle(){
         isDisplay.toggle()
-        isDisplay ? (backgroundColor = UIColor.yellow) : (backgroundColor = UIColor.blue)
+        isDisplay ? (backgroundColor = UIColor.brown) : (backgroundColor = UIColor.darkGray)
+    }
+
+    func getDisplayStatus() -> Bool {
+        return isDisplay
     }
 
     @available(*, unavailable)
@@ -25,9 +31,9 @@ class PetToggleButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    convenience init(title: String, color: UIColor, font: UIFont) {
+    convenience init(title: PetsAdoption.PetType, color: UIColor, font: UIFont) {
         self.init(frame: .zero)
-        setTitle(title, for: .normal)
+        setTitle(title.rawValue, for: .normal)
         setTitleColor(color, for: .normal)
         setTitleColor(color.withAlphaComponent(0.5), for: .highlighted)
         titleLabel?.font = font

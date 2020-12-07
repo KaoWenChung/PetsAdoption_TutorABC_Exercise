@@ -23,6 +23,8 @@
 		212F8719257A3A0F0034EF94 /* GenderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F8718257A3A0F0034EF94 /* GenderImage.swift */; };
 		212F871D257B92680034EF94 /* AgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212F871C257B92680034EF94 /* AgeLabel.swift */; };
 		21387C59257D0FD1009E9EBC /* PetToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C58257D0FD1009E9EBC /* PetToggleButton.swift */; };
+		21387C5F257DB31D009E9EBC /* PetsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C5E257DB31D009E9EBC /* PetsDetailViewController.swift */; };
+		21387C62257DB41F009E9EBC /* PetsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C61257DB41F009E9EBC /* PetsDetailView.swift */; };
 		A133D4167504823053122485 /* Pods_PetsAdoption_TutorABC_Exercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		212F8718257A3A0F0034EF94 /* GenderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderImage.swift; sourceTree = "<group>"; };
 		212F871C257B92680034EF94 /* AgeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeLabel.swift; sourceTree = "<group>"; };
 		21387C58257D0FD1009E9EBC /* PetToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetToggleButton.swift; sourceTree = "<group>"; };
+		21387C5E257DB31D009E9EBC /* PetsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsDetailViewController.swift; sourceTree = "<group>"; };
+		21387C61257DB41F009E9EBC /* PetsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsDetailView.swift; sourceTree = "<group>"; };
 		7A29AF14EB2FBC42D8CC2098 /* Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; sourceTree = "<group>"; };
 		A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetsAdoption_TutorABC_Exercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDFB914ADA85C4CB15820C21 /* Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				212F86E62573AFD00034EF94 /* PetsCollectionViewCell.swift */,
+				21387C61257DB41F009E9EBC /* PetsDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				212F86D22570FAD70034EF94 /* MainViewController.swift */,
+				21387C5E257DB31D009E9EBC /* PetsDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -268,12 +274,14 @@
 			files = (
 				212F87152579EA510034EF94 /* UIImage+Ext.swift in Sources */,
 				212F86F225748EA50034EF94 /* Pets.swift in Sources */,
+				21387C5F257DB31D009E9EBC /* PetsDetailViewController.swift in Sources */,
 				212F86F82574C4880034EF94 /* UILabel+Ext.swift in Sources */,
 				212F870C257678610034EF94 /* UIView+Ext.swift in Sources */,
 				212F86BD2570F2A40034EF94 /* AppDelegate.swift in Sources */,
 				21387C59257D0FD1009E9EBC /* PetToggleButton.swift in Sources */,
 				212F86EC2573B5AA0034EF94 /* PetsAdoption.swift in Sources */,
 				212F86EF2573C11E0034EF94 /* PetsCollectionViewLayout.swift in Sources */,
+				21387C62257DB41F009E9EBC /* PetsDetailView.swift in Sources */,
 				212F86D32570FAD70034EF94 /* MainViewController.swift in Sources */,
 				212F86F5257494B00034EF94 /* UIColor+Ext.swift in Sources */,
 				212F8719257A3A0F0034EF94 /* GenderImage.swift in Sources */,
