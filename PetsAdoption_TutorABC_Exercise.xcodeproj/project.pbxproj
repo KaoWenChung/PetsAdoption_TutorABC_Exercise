@@ -25,6 +25,7 @@
 		21387C59257D0FD1009E9EBC /* PetToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C58257D0FD1009E9EBC /* PetToggleButton.swift */; };
 		21387C5F257DB31D009E9EBC /* PetsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C5E257DB31D009E9EBC /* PetsDetailViewController.swift */; };
 		21387C62257DB41F009E9EBC /* PetsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21387C61257DB41F009E9EBC /* PetsDetailView.swift */; };
+		21387C65257DD8B8009E9EBC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21387C64257DD8B8009E9EBC /* Localizable.strings */; };
 		A133D4167504823053122485 /* Pods_PetsAdoption_TutorABC_Exercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		21387C58257D0FD1009E9EBC /* PetToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetToggleButton.swift; sourceTree = "<group>"; };
 		21387C5E257DB31D009E9EBC /* PetsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsDetailViewController.swift; sourceTree = "<group>"; };
 		21387C61257DB41F009E9EBC /* PetsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetsDetailView.swift; sourceTree = "<group>"; };
+		21387C64257DD8B8009E9EBC /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7A29AF14EB2FBC42D8CC2098 /* Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.debug.xcconfig"; sourceTree = "<group>"; };
 		A7B3D3E053783C8AE352939F /* Pods_PetsAdoption_TutorABC_Exercise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetsAdoption_TutorABC_Exercise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDFB914ADA85C4CB15820C21 /* Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; path = "Target Support Files/Pods-PetsAdoption_TutorABC_Exercise/Pods-PetsAdoption_TutorABC_Exercise.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				212F86C52570F2A50034EF94 /* Assets.xcassets */,
 				212F86C72570F2A50034EF94 /* LaunchScreen.storyboard */,
 				212F86CA2570F2A50034EF94 /* Info.plist */,
+				21387C64257DD8B8009E9EBC /* Localizable.strings */,
 			);
 			path = PetsAdoption_TutorABC_Exercise;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212F86C92570F2A50034EF94 /* LaunchScreen.storyboard in Resources */,
+				21387C65257DD8B8009E9EBC /* Localizable.strings in Resources */,
 				212F86C62570F2A50034EF94 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

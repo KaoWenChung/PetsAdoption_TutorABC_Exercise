@@ -6,25 +6,30 @@
 //
 
 import UIKit
+import Masonry
 
 class PetsDetailViewController: UIViewController {
+    private var detailView = PetsDetailView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        title = "Pet Detail"
+        view.backgroundColor = .lightGray
 
-        // Do any additional setup after loading the view.
+        view.addSubview(detailView)
+        detailView.mas_makeConstraints { (make) in
+            make?.top.equalTo()(0)
+            make?.bottom.equalTo()(0)
+            make?.right.equalTo()(0)
+            make?.left.equalTo()(0)
+        }
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func initView(by petData: Pet) {
+        detailView.initView(by: petData)
     }
-    */
 
+    deinit {
+        print("PetsDetailViewController has been deinit")
+    }
 }

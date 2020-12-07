@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Pets Adoption"
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         getJSON()
         let pad = PetsAdoption.x(20)
@@ -55,7 +56,11 @@ class MainViewController: UIViewController {
         self.view.addSubview(stackView)
 
         stackView.mas_makeConstraints { (make) in
-            make?.top.equalTo()(PetsAdoption.x(80))
+            if #available(iOS 11.0, *) {
+                make?.top.equalTo()(view.mas_safeAreaLayoutGuideTop)?.with()?.offset()(PetsAdoption.x(10))
+            } else {
+                make?.top.equalTo()(PetsAdoption.x(10))
+            }
             make?.centerX.equalTo()
             make?.height.equalTo()(20)
             make?.width.equalTo()(PetsAdoption.x(100))
@@ -146,6 +151,7 @@ extension MainViewController: UICollectionViewDelegate {
         collectionView.deselectItem(at: indexPath, animated: true)
         print("Tap :", indexPath.row, displayPets[indexPath.row])
         let viewcontroller = PetsDetailViewController()
+        viewcontroller.initView(by: displayPets[indexPath.row])
         navigationController?.pushViewController(viewcontroller, animated: true)
     }
 }

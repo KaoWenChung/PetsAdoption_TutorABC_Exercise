@@ -6,12 +6,9 @@
 //
 
 import UIKit
-import Masonry
 import SDWebImage
 
 class PetsCollectionViewCell: UICollectionViewCell {
-    private static let pad = PetsAdoption.x(20)
-
     private var petSex = GenderImage()
     private var petAge = AgeLabel()
     private var petImage = UIImageView()
