@@ -39,12 +39,14 @@ class PetsCollectionViewCell: UICollectionViewCell {
             }
         }()
         petAge.text = ageText
-        petAge.font = PetsAdoption.Font.h3.regular
+        petAge.font = PetsAdoption.Font.h2.regular
+        petAge.textColor = PetsAdoption.Color.mainDark
         contentView.addSubview(petAge)
         contentView.addSubview(underLine)
 
         petAddress.text = petData.shelter_address
         petAddress.font = PetsAdoption.Font.h3.regular
+        petAddress.textColor = PetsAdoption.Color.mainDark
         petAddress.numberOfLines = 2
         contentView.addSubview(petAddress)
 

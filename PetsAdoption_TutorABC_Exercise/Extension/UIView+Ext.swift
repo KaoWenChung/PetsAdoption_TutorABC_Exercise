@@ -24,8 +24,4 @@ extension UIView {
             frame.origin.y = round(newY)
         }
     }
-
-//    var maxSubViewsMaxY: CGFloat {
-//        return subviews.map { $0.frame.maxY }.max() ?? 0
-//    }
 }

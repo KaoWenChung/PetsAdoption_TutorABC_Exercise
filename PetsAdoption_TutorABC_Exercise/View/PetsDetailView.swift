@@ -116,7 +116,7 @@ class PetsDetailView: UIView {
         //Stack View
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.vertical
-        stackView.distribution = UIStackView.Distribution.equalSpacing
+        stackView.distribution = UIStackView.Distribution.fillEqually
         stackView.alignment = UIStackView.Alignment.leading
         stackView.spacing = 0.0
 //        stackView.sizeToFit()
