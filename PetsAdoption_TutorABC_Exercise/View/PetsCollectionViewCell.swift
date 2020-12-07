@@ -10,7 +10,7 @@ import SDWebImage
 
 class PetsCollectionViewCell: UICollectionViewCell {
     private var petSex = GenderImage()
-    private var petAge = AgeLabel()
+    private var petAge = UILabel()
     private var petImage = UIImageView()
     private var petAddress = UILabel()
     private var underLine = UIView()
@@ -28,7 +28,18 @@ class PetsCollectionViewCell: UICollectionViewCell {
         petSex.initLabel(by: petData.animal_sex ?? "")
         contentView.addSubview(petSex)
 
-        petAge.initLabel(by: petData.animal_age ?? "")
+        let ageText:String = {
+            switch petData.animal_age {
+            case "ADULT":
+                return "成年"
+            case "CHILD":
+                return "幼年"
+            default:
+                return "未填"
+            }
+        }()
+        petAge.text = ageText
+        petAge.font = PetsAdoption.Font.h3.regular
         contentView.addSubview(petAge)
         contentView.addSubview(underLine)
 

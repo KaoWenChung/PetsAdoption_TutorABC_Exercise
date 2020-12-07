@@ -13,7 +13,7 @@ class PetsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Pet Detail"
+        
         view.backgroundColor = .lightGray
 
         view.addSubview(detailView)

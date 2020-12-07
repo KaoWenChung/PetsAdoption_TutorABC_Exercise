@@ -18,7 +18,10 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Pets Adoption"
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         getJSON()
@@ -56,11 +59,15 @@ class MainViewController: UIViewController {
         self.view.addSubview(stackView)
 
         stackView.mas_makeConstraints { (make) in
+            /*
             if #available(iOS 11.0, *) {
                 make?.top.equalTo()(view.mas_safeAreaLayoutGuideTop)?.with()?.offset()(PetsAdoption.x(10))
             } else {
                 make?.top.equalTo()(PetsAdoption.x(10))
             }
+            */
+
+            make?.top.equalTo()(PetsAdoption.x(50))
             make?.centerX.equalTo()
             make?.height.equalTo()(20)
             make?.width.equalTo()(PetsAdoption.x(100))
