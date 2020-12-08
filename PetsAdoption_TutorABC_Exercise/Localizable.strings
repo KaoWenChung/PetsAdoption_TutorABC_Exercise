@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  PetsAdoption_TutorABC_Exercise
+
+  Created by wyn on 2020/12/8.
+  
+*/
+
+"AlertTitle.noData" = "載入異常";
+
+"AlertMessage.noData" = "點擊\"確認\"後將重新載入";
+
+"AlertButton.ok" = "確認";

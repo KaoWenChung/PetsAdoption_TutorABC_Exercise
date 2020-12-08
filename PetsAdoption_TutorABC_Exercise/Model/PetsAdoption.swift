@@ -64,5 +64,30 @@ class PetsAdoption {
             return UIFont(name: "PingFangTC-Regular", size: rawValue)!
         }
     }
+
+    enum AlertTitle: LocalText {
+        var prefix: String { return "AlertTitle" }
+        case noData
+    }
+
+    enum AlertMessage: LocalText {
+        var prefix: String { return "AlertMessage" }
+        case noData
+    }
+
+    enum AlertButton: LocalText {
+        var prefix: String { return "AlertButton" }
+        case ok
+    }
+
+    static func creatAlert(title: AlertTitle, message: AlertMessage, okBtn: AlertButton, action: @escaping () -> Void) -> UIAlertController {
+        let okAction = UIAlertAction(title: okBtn.text, style: .default) { _ in
+            action()
+        }
+        let alertController = UIAlertController(title: title.text, message: message.text, preferredStyle: .alert)
+        alertController.addAction(okAction)
+
+        return alertController
+    }
 }
 
