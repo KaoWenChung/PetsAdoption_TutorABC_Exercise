@@ -10,6 +10,8 @@ import SDWebImage
 import AFNetworking
 
 class MainViewController: UIViewController {
+    private let spinner = UIActivityIndicatorView()
+
     private var collectionView: UICollectionView!
     private var pets = [Pet]()
     private var displayPets = [Pet]()
@@ -25,7 +27,6 @@ class MainViewController: UIViewController {
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
 
-        getJSON()
         let pad = PetsAdoption.x(20)
         let insets = UIEdgeInsets(top: pad * 1.5, left: pad, bottom: pad, right: pad)
         let layout = PetsCollectionViewLayout(lineSpacing: PetsAdoption.x(8), columnSpacing: PetsAdoption.x(4), sectionInsets: insets)
@@ -37,8 +38,10 @@ class MainViewController: UIViewController {
         collectionView.register(PetsCollectionViewCell.self, forCellWithReuseIdentifier: PetsCollectionViewCell.reuseId)
         collectionView.backgroundColor = .lightGray
         view.backgroundColor = .lightGray
-        
         view.addSubview(collectionView)
+
+        createSpinner(view)
+        getJSON()
         setUpToggleButton()
     }
 
@@ -70,8 +73,6 @@ class MainViewController: UIViewController {
 
             make?.top.equalTo()(PetsAdoption.x(50))
             make?.centerX.equalTo()
-//            make?.height.equalTo()(PetsAdoption.x(20))
-//            make?.width.equalTo()(PetsAdoption.x(100))
         }
     }
     // 與tapCatButton待整合
@@ -107,7 +108,8 @@ class MainViewController: UIViewController {
         }
     }
 
-    func getJSON() {
+    private func getJSON() {
+        spinner.startAnimating()
         let url = "https://quality.data.gov.tw/dq_download_json.php?nid=85903&md5_url=c37f10282e2229a6459d7d85e601c38e"
         let manager = AFHTTPSessionManager()
         manager.get(
@@ -124,11 +126,28 @@ class MainViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    self.spinner.stopAnimating()
                 }
             },
             failure: { (_, error) in
-                 print("Error: " + error.localizedDescription)
+                self.spinner.stopAnimating()
+                let alert = PetsAdoption.creatAlert(title: .noData, message: .noData, okBtn: .ok, action: {
+                    self.getJSON()
+                })
+                self.present(alert, animated: true, completion: nil)
+                print("Error: " + error.localizedDescription)
             })
+    }
+
+    private func createSpinner(_ view: UIView) {
+        spinner.style = .whiteLarge
+        spinner.hidesWhenStopped = true
+        view.addSubview(spinner)
+
+        spinner.mas_makeConstraints { (make) in
+            make?.centerX.equalTo()
+            make?.centerY.equalTo()
+        }
     }
 }
 
