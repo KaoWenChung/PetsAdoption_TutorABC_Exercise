@@ -15,8 +15,8 @@ class MainViewController: UIViewController {
     private var collectionView: UICollectionView!
     private var pets = [Pet]()
     private var displayPets = [Pet]()
-    private let dogToggleButton = PetToggleButton(title: .dog, color: .white, font: PetsAdoption.Font.h2.regular)
-    private let catToggleButton = PetToggleButton(title: .cat, color: .white, font: PetsAdoption.Font.h2.regular)
+    private let dogToggleButton = PetToggleButton(title: .dog, font: PetsAdoption.Font.h2.regular)
+    private let catToggleButton = PetToggleButton(title: .cat, font: PetsAdoption.Font.h2.regular)
 
     override func viewDidLoad() {
         super.viewDidLoad()

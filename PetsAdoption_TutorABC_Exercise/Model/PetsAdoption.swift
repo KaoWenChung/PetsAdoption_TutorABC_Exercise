@@ -48,6 +48,9 @@ class PetsAdoption {
     // UIColor
     enum Color {
         static let mainBlue = UIColor(rgb: 0xbae0ff)
+        static let brown = UIColor(rgb: 0x996600)
+        static let darkGray = UIColor(rgb: 0xa9a9a9)
+        static let lightGray = UIColor(rgb: 0xD3D3D3)
         static let red = UIColor(rgb: 0xffbfba)
         static let mainDark = UIColor(rgb: 0x373E52)
         static let mainYellow = UIColor(rgb: 0xffff96)

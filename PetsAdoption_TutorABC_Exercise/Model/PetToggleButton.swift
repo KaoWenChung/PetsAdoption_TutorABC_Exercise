@@ -13,21 +13,32 @@ class PetToggleButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         isExclusiveTouch = true
-        backgroundColor = .brown
+        bright()
         translatesAutoresizingMaskIntoConstraints = false
         mas_makeConstraints { (make) in
             make?.height.equalTo()(PetsAdoption.x(40))
             make?.width.equalTo()(PetsAdoption.x(40))
         }
         layer.cornerRadius = PetsAdoption.x(20)
-
         layer.borderWidth = PetsAdoption.x(2)
-        layer.borderColor = PetsAdoption.Color.mainWhite.cgColor
     }
 
     func toggle(){
         isDisplay.toggle()
-        isDisplay ? (backgroundColor = UIColor.brown) : (backgroundColor = UIColor.darkGray)
+        isDisplay ? bright() : dark()
+    }
+
+    private func bright() {
+        backgroundColor = PetsAdoption.Color.brown
+        setTitleColor(PetsAdoption.Color.mainWhite, for: .normal)
+        setTitleColor(PetsAdoption.Color.mainWhite.withAlphaComponent(0.5), for: .highlighted)
+        layer.borderColor = PetsAdoption.Color.mainWhite.cgColor
+    }
+
+    private func dark() {
+        backgroundColor = PetsAdoption.Color.darkGray
+        setTitleColor(PetsAdoption.Color.lightGray, for: .normal)
+        layer.borderColor = PetsAdoption.Color.lightGray.cgColor
     }
 
     func getDisplayStatus() -> Bool {
@@ -39,11 +50,9 @@ class PetToggleButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 
-    convenience init(title: PetsAdoption.PetType, color: UIColor, font: UIFont) {
+    convenience init(title: PetsAdoption.PetType, font: UIFont) {
         self.init(frame: .zero)
         setTitle(title.rawValue, for: .normal)
-        setTitleColor(color, for: .normal)
-        setTitleColor(color.withAlphaComponent(0.5), for: .highlighted)
         titleLabel?.font = font
         sizeToFit()
     }
