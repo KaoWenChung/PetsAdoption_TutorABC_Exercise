@@ -3,4 +3,149 @@
    uuid = "BF3736AC-C583-49A6-95EC-00A33E254493"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "976132C3-B2C7-4449-B31B-BCA3D6291B6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetsAdoption_TutorABC_Exercise/Extension/UIImageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "downloaded(imageLoader:from:placeholderImage:contentMode:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFF00638-0CA8-4942-BF57-7BE3F0CD6AE0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "getImage(from:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFF00638-0CA8-4942-BF57-7BE3F0CD6AE0 - 1acdbf06cc861043"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetsAdoption_TutorABC_Exercise.ImageRemoteRepository.getImage(from: Foundation.URL, completion: Swift.Optional&lt;(Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PetsAdoption_TutorABC_Exercise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wyn/Desktop/PetsAdoption_TutorABC_Exercise/PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1559">
+               </Location>
+               <Location
+                  uuid = "DFF00638-0CA8-4942-BF57-7BE3F0CD6AE0 - 1acdbf06cc861043"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetsAdoption_TutorABC_Exercise.ImageRemoteRepository.getImage(from: Foundation.URL, completion: Swift.Optional&lt;(Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PetsAdoption_TutorABC_Exercise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wyn/Desktop/PetsAdoption_TutorABC_Exercise/PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1598">
+               </Location>
+               <Location
+                  uuid = "DFF00638-0CA8-4942-BF57-7BE3F0CD6AE0 - 1acdbf06cc861043"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetsAdoption_TutorABC_Exercise.ImageRemoteRepository.getImage(from: Foundation.URL, completion: Swift.Optional&lt;(Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PetsAdoption_TutorABC_Exercise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wyn/Desktop/PetsAdoption_TutorABC_Exercise/PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1625">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37AE9174-F4DC-42D8-A6E2-8F1FE49266E7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getImage(from:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8A1E4A5-9841-4ABB-9458-97DE7C07DDBE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "getImage(from:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D8A1E4A5-9841-4ABB-9458-97DE7C07DDBE - a58f23ba309a844f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PetsAdoption_TutorABC_Exercise.ImageRemoteRepository.getImage(from: Foundation.URL, completion: Swift.Optional&lt;(Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PetsAdoption_TutorABC_Exercise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wyn/Desktop/PetsAdoption_TutorABC_Exercise/PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  uuid = "D8A1E4A5-9841-4ABB-9458-97DE7C07DDBE - 1acdbf06cc861064"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PetsAdoption_TutorABC_Exercise.ImageRemoteRepository.getImage(from: Foundation.URL, completion: Swift.Optional&lt;(Swift.Optional&lt;__C.UIImage&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PetsAdoption_TutorABC_Exercise"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wyn/Desktop/PetsAdoption_TutorABC_Exercise/PetsAdoption_TutorABC_Exercise/Repository/ImageRemoteRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "243">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
