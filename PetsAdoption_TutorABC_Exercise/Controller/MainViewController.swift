@@ -122,7 +122,6 @@ class MainViewController: UIViewController {
                 Pet.savePetsModel(petArray: petArray)
                 self.pets = Pet.getPetsModelFromDie()
                 self.displayPets = self.pets
-//                print("🐶🐱", self.pets)
 
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
@@ -135,7 +134,6 @@ class MainViewController: UIViewController {
                     self.getJSON()
                 })
                 self.present(alert, animated: true, completion: nil)
-                print("Error: " + error.localizedDescription)
             })
     }
 
@@ -176,7 +174,6 @@ extension MainViewController: PetsCollectionViewDelegate {
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print("Tap :", indexPath.row, displayPets[indexPath.row])
         let viewcontroller = PetsDetailViewController()
         viewcontroller.initView(by: displayPets[indexPath.row])
         navigationController?.pushViewController(viewcontroller, animated: true)

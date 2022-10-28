@@ -41,8 +41,8 @@ class PetsAdoption {
     }
 
     enum PetType: String{
-        case cat = "貓"
-        case dog = "狗"
+        case cat = "Cat"
+        case dog = "Dog"
     }
 
     // UIColor

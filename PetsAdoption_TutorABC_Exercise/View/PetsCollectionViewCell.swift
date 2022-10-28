@@ -31,11 +31,11 @@ class PetsCollectionViewCell: UICollectionViewCell {
         let ageText:String = {
             switch petData.animal_age {
             case "ADULT":
-                return "成年"
+                return "Adult"
             case "CHILD":
-                return "幼年"
+                return "Baby"
             default:
-                return "未填"
+                return "Unknown"
             }
         }()
         petAge.text = ageText
