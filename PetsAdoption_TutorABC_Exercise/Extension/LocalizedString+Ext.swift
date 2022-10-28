@@ -13,6 +13,11 @@ protocol LocalText { // 多國語系文字取得協議
 }
 
 extension LocalText {
+
+    var prefix: String {
+        return String(describing: self)
+    }
+
     var text: String {
         return NSLocalizedString(prefix + "." + String(describing: self), comment: "")
     }

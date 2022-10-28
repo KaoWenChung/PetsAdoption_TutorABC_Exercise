@@ -69,17 +69,14 @@ class PetsAdoption {
     }
 
     enum AlertTitle: LocalText {
-        var prefix: String { return "AlertTitle" }
         case noData
     }
 
     enum AlertMessage: LocalText {
-        var prefix: String { return "AlertMessage" }
         case noData
     }
 
     enum AlertButton: LocalText {
-        var prefix: String { return "AlertButton" }
         case ok
     }
 
